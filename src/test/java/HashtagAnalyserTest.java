@@ -17,4 +17,14 @@ public class HashtagAnalyserTest {
 
         assertThat(hashtags).isEmpty();
     }
+
+    @Test
+    public void return_text_without_hashtag_for_text_only_one_hashtag() throws Exception {
+        String text = "#abc";
+        List<String> expectedHashtags = Arrays.asList("abc");
+
+        List<String> hashtags = HashtagAnalyser.retrieve(text);
+
+        assertThat(hashtags).isEqualTo(expectedHashtags);
+    }
 }
