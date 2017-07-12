@@ -27,4 +27,13 @@ public class HashtagAnalyserTest {
 
         assertThat(hashtags).isEqualTo(expectedHashtags);
     }
+
+    @Test
+    public void return_nothing_if_no_hashtag() throws Exception {
+        String text = "abc";
+
+        List<String> hashtags = HashtagAnalyser.retrieve(text);
+
+        assertThat(hashtags).isEmpty();
+    }
 }
