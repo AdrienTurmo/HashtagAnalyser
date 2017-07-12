@@ -1,6 +1,7 @@
 import org.junit.Test;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -10,11 +11,10 @@ public class HashtagAnalyserTest {
 
     @Test
     public void return_nothing_if_empty_string() throws Exception {
-        List<String> expectedHashtags = Arrays.asList("");
         String text = "";
 
         List<String> hashtags = HashtagAnalyser.retrieve(text);
 
-        assertThat(hashtags).isEqualTo(expectedHashtags);
+        assertThat(hashtags).isEmpty();
     }
 }
