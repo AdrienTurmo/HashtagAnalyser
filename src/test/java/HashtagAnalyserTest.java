@@ -19,7 +19,16 @@ public class HashtagAnalyserTest {
     }
 
     @Test
-    public void return_text_without_hashtag_for_text_only_one_hashtag() throws Exception {
+    public void return_nothing_if_no_hashtag() throws Exception {
+        String text = "abc";
+
+        List<String> hashtags = HashtagAnalyser.retrieve(text);
+
+        assertThat(hashtags).isEmpty();
+    }
+
+    @Test
+    public void return_text_without_hashtag_sign_for_text_only_one_hashtag() throws Exception {
         String text = "#abc";
         List<String> expectedHashtags = Arrays.asList("abc");
 
@@ -29,11 +38,12 @@ public class HashtagAnalyserTest {
     }
 
     @Test
-    public void return_nothing_if_no_hashtag() throws Exception {
-        String text = "abc";
+    public void return_text_without_hashtag_sign_for_another_hashtag() throws Exception {
+        String text = "#bca";
+        List<String> expectedHashtags = Arrays.asList("bca");
 
         List<String> hashtags = HashtagAnalyser.retrieve(text);
 
-        assertThat(hashtags).isEmpty();
+        assertThat(hashtags).isEqualTo(expectedHashtags);
     }
 }

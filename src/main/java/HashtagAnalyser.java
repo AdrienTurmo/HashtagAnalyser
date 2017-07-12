@@ -7,6 +7,6 @@ public class HashtagAnalyser {
         if (!text.contains("#")) {
             return new ArrayList<>();
         }
-        return Arrays.asList("abc");
+        return Arrays.asList(text.replace("#",""));
     }
 }
