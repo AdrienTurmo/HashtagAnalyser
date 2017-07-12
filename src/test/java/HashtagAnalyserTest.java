@@ -46,4 +46,14 @@ public class HashtagAnalyserTest {
 
         assertThat(hashtags).isEqualTo(expectedHashtags);
     }
+
+    @Test
+    public void return_text_without_hashtag_sign_for_a_hashtag_with_something_in_from_of_it() throws Exception {
+        String text = "a#aaa";
+        List<String> expectedHashtags = Arrays.asList("aaa");
+
+        List<String> hashtags = HashtagAnalyser.retrieve(text);
+
+        assertThat(hashtags).isEqualTo(expectedHashtags);
+    }
 }
